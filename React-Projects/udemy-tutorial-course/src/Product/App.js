@@ -17,12 +17,16 @@ class ProductComponent extends Component {
   info = () =>{
     this.props.parentDisplayInfo(this.state.qty, this.props.name,this.props.price);
   }
+  delete = () => {
+    this.props.parentDeleteProduct(this,this.props.price*this.state.qty);
+  }
   render() {
     return (
       <div className="App">
         <p>{this.props.name} - ${this.props.price}</p>
         <button onClick={this.buy}>Buy</button>
         <button onClick={this.info}>Show</button>
+        <button onClick={this.delete}>Delete</button>
         <h3>Bought: {this.state.qty} item(s)</h3>
         <hr/>
       </div>

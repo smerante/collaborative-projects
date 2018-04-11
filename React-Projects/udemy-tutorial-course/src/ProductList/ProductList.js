@@ -20,6 +20,23 @@ class ProductList extends Component {
    showProduct(amt, name, price){
      alert("You've Selected "+amt+" " + name+"(s) -$" + price*amt);
    }
+   deleteProduct = (product, price) =>{
+     var index;
+     var updatedProductList = [];
+     for(var i=0; i < this.state.productList.length; i++){
+       if(this.state.productList[i].name === product.props.name){
+         index = i;
+       }
+     }
+    var updatedIndex=0;
+    for(var i2=0; i2 < this.state.productList.length; i2++){
+      if(i2 !== index){
+        updatedProductList[updatedIndex++] = this.state.productList[i2];
+      }
+    }
+    this.setState({productList: updatedProductList})
+    this.calculateTotalPrice(-parseInt(price));
+   }
    calculateTotalPrice = (price) =>{
       this.setState({totalPrice: this.state.totalPrice + price},function(){
       })
@@ -33,7 +50,7 @@ class ProductList extends Component {
       var form = this;
       var products = this.state.productList.map(function(product){
         return (
-          <ProductComponent name={product.name} price={product.price} parentDisplayInfo={form.showProduct} parentCalculatePrice={form.calculateTotalPrice}/>
+          <ProductComponent key={product.name} name={product.name} price={product.price} parentDisplayInfo={form.showProduct} parentCalculatePrice={form.calculateTotalPrice} parentDeleteProduct={form.deleteProduct}/>
         )
       });
       return (

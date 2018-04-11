@@ -14,8 +14,8 @@ class ProductForm extends Component {
             price: parseInt(this.refs.price.value,10)
         }
         this.props.handleCreateProduct(product);
-        this.refs.name.value="Product Name";
-        this.refs.name.value="Product Price";
+        this.refs.name.value="";
+        this.refs.price.value="";
     }
     render() {
       return (
@@ -23,7 +23,7 @@ class ProductForm extends Component {
         <h1>ProductForm</h1>
         <form onSubmit={this.submit}>
             <input type="text" placeholder="Product Name" ref = "name"/>
-            <input type="number" placeholder="Product Price" ref = "price"/>
+            <input type="text" placeholder="Product Price" ref = "price"/>
             <button>Create Product</button>
         </form>
         <hr/>
