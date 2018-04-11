@@ -1,4 +1,5 @@
-Created by [Udemy Course](https://www.udemy.com/react-basic-in-just-1-hour/)
+Created by follwing free [Udemy Course](https://www.udemy.com/react-basic-in-just-1-hour/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
